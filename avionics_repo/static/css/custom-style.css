@@ -1,0 +1,343 @@
+/*---------------- Customised CSS ------------------*/ 
+*{ box-sizing: border-box; }
+
+body { color: #65666d; }
+
+.bg-gradient-primary { background-color: #242464; background-image: linear-gradient(180deg,#242464 10%,#242464 100%); }
+
+.btn-primary { color: #fff; background-color: #242464; border-color: #242464; }
+.btn-primary:hover { background-color: #faa40c; border-color: #faa40c; }
+
+.btn { transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; }
+
+.btn-link { color: #242464!important; }
+
+.sidebar-brand-icon { display: inline!important; }
+
+.sidebar .sidebar-brand .sidebar-brand-text { display: none!important; }
+
+.bg-gradient-primary { background-color: #242464; background-image: linear-gradient(180deg,#242464 10%,#242464 100%); background-size: cover; }
+
+.sidebar.toggled .sidebar-brand-icon { display: none!important; }
+.sidebar.toggled .sidebar-brand-text { display: inline!important; }
+
+.sidebar, .sidebar.toggled { transition: 0.4s; -moz-transition: 0.4s; -webkit-transition: 0.4s; }
+
+.tabsDiv { background: #242464!important; width: 100%; }
+
+.tabsDiv nav { background: transparent!important; }
+.tabsDiv nav a { color: #fff!important; text-transform: uppercase; }
+
+.tabsDiv .nav-item .nav-link.active a { border-top-left-radius: 5px; border-top-right-radius: 5px; }
+
+.tabsDiv .nav-tabs .nav-item.show .nav-link, .tabsDiv .nav-tabs .nav-link.active { background: #faa40c; border: 0; }
+
+.tabsDiv .nav-tabs { border-bottom: 0; }
+
+.tabsDiv .nav-tabs .nav-item { margin-bottom: 0; }
+
+.tabsDiv .nav-tabs .nav-link { border: 0!important; border-radius: 0!important; -webkit-transition: 0.2s; -moz-transition: 0.2s; transition: 0.2s; }
+
+.tabsDiv .nav-tabs .nav-link:hover { background: #faa40c; border: 0; -webkit-transition: 0.2s; -moz-transition: 0.2s; transition: 0.2s; }
+
+.sidebar-dark .nav-item .nav-link, .sidebar-dark .nav-item .nav-link i { color: rgba(255,255,255,1); }
+
+.tabsDiv .nav-tabs .nav-link:hover:not(.active) { background: #faa40c; }
+
+.export-button { -webkit-transition: 0.2s; -moz-transition: 0.2s; transition: 0.2s; }
+.export-button:hover { -webkit-transition: 0.2s; -moz-transition: 0.2s; transition: 0.2s; }
+
+/*.fade { transition: opacity .15s linear!important; }
+
+.fade:not(.show) { transition: opacity .15s linear!important; opacity: 0; }*/
+
+.createProjectModal .close, .createProjectModal button { font-size: 1rem; text-shadow: none; opacity: 1; font-weight: normal; }
+
+#tabsProcess table th:last-child::before, #tabsProcess table th:last-child::after { display: none!important; }
+
+#tabsProcess label{ content: ""; }
+
+.btn-primary.focus, .btn-primary:focus, 
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle 
+{ background-color: #242464; border-color: #242464; }
+
+.createProjectModal a, 
+.createUserModal a, 
+.editUserModal a, 
+.deleteUserModal a, 
+.editProjectModal a,
+.createRoleModal a,
+.editRoleModal a,
+.deleteRoleModal a,
+.logOutModal a,
+.updateProfileModal a,
+.changePasswordModal a,
+.emailConfigModal a,
+.createTemplateModal a,
+.schemaCreationModal a,
+.newFieldCreationModal a
+{ color: #000; }
+
+.createProjectModal .close, 
+.editProjectModal .close,
+.createUserModal .close, 
+.editUserModal .close, 
+.deleteUserModal .close,
+.createRoleModal .close,
+.editRoleModal .close,
+.deleteRoleModal .close,
+.logOutModal .close,
+.updateProfileModal .close,
+.changePasswordModal .close,
+.emailConfigModal .close,
+.createTemplateModal .close,
+.templateConfigViewModal .close,
+.schemaCreationModal .close,
+.newFieldCreationModal .close
+{ background: none; }
+
+.createProjectModal .btn, .createProjectModal button[type="submit"],
+.editProjectModal .btn, .editProjectModal button[type="submit"],
+.createUserModal .btn, .createUserModal button[type="submit"], 
+.editUserModal .btn, .editUserModal button[type="submit"],
+.deleteUserModal .btn, .deleteUserModal button[type="submit"],
+.createRoleModal .btn, .createRoleModal button[type="submit"],
+.editRoleModal .btn, .editRoleModal button[type="submit"],
+.deleteRoleModal .btn, .deleteRoleModal button[type="submit"],
+.logOutModal .btn, .logOutModal button[type="submit"],
+.updateProfileModal .btn, .updateProfileModal button[type="submit"],
+.changePasswordModal .btn, .changePasswordModal button[type="submit"],
+#tabsProject .btn, #tabsProject button[type="submit"],
+.emailConfigModal .btn, .emailConfigModal button[type="submit"],
+.createTemplateModal .btn, .createTemplateModal button[type="submit"],
+.templateConfigViewModal .btn, .templateConfigViewModal button[type="submit"],
+.schemaCreationModal .btn, .schemaCreationModal button[type="submit"],
+.newFieldCreationModal .btn, .newFieldCreationModal button[type="submit"],
+.templateConfigViewEditModal .btn, .templateConfigViewEditModal button[type="submit"]
+{ background: #242464; color: #fff; }
+
+.createProjectModal .btn:hover, .createProjectModal button[type="submit"]:hover,
+.editProjectModal .btn:hover, .editProjectModal button[type="submit"]:hover,
+.createUserModal .btn:hover, .createUserModal button[type="submit"]:hover, 
+.editUserModal .btn:hover, .editUserModal button[type="submit"]:hover,
+.deleteUserModal .btn:hover, .deleteUserModal button[type="submit"]:hover,
+.createRoleModal .btn:hover, .createRoleModal button[type="submit"]:hover,
+.editRoleModal .btn:hover, .editRoleModal button[type="submit"]:hover,
+.deleteRoleModal .btn:hover, .deleteRoleModal button[type="submit"]:hover,
+.logOutModal .btn:hover, .logOutModal button[type="submit"]:hover,
+.updateProfileModal .btn:hover, .updateProfileModal button[type="submit"]:hover,
+.changePasswordModal .btn:hover, .changePasswordModal button[type="submit"]:hover,
+#tabsProject .btn:hover, #tabsProject button[type="submit"]:hover,
+.emailConfigModal .btn:hover, .emailConfigModal button[type="submit"]:hover,
+.createTemplateModal .btn:hover, .createTemplateModal button[type="submit"]:hover,
+.templateConfigViewModal .btn:hover, .templateConfigViewModal button[type="submit"]:hover,
+.schemaCreationModal .btn:hover, .schemaCreationModal button[type="submit"]:hover,
+.newFieldCreationModal .btn:hover, .newFieldCreationModal button[type="submit"]:hover,
+.newFieldCreationModal .btn, .newFieldCreationModal button[type="submit"]
+{ background: #faa40c; }
+
+.page-item.active .page-link { background-color: #242464; border: 0; }
+
+
+.detail-1 { position: relative; z-index: 100; }
+
+
+.createProjectModal .multiselect { background: none; }
+
+.multiselect { background: none!important; color: #6e707e!important; border: 1px solid #d1d3e2; width: 100%!important; }
+
+#multiple-checkboxes { width: 100%!important; }
+
+.multiselect { text-align: left; }
+.multiselect.dropdown-toggle::after { float: right; margin-top: 10px; }
+.multiDropDown { width: 100%; text-align: left; }
+
+.userSwitch { line-height: 30px; color: #6e707e; }
+.userSwitch .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+.userSwitch .switch input { opacity: 0; width: 0; height: 0; }
+.userSwitch .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; 
+transition: .4s; }
+.userSwitch .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white;
+-webkit-transition: .4s; transition: .4s; }
+.userSwitch input:checked + .slider { background-color: #2196F3; }
+.userSwitch input:focus + .slider { box-shadow: 0 0 1px #2196F3; }
+.userSwitch input:checked + .slider:before { -webkit-transform: translateX(26px); -ms-transform: translateX(26px); transform: translateX(26px); }
+
+/* Rounded sliders */
+.userSwitch .slider.round { border-radius: 34px; }
+.userSwitch .slider.round:before { border-radius: 50%; }
+
+.dataTable a { color: #242464; text-decoration: none; transition: 0.3s; text-transform: uppercase; font-size: 14px; }
+.dataTable a:hover { color: #faa40c; transition: 0.3s; }
+
+.table { color: #65666d; }
+
+.multiselect-container { width: 100%!important; }
+
+.page-item.disabled .page-link { color: #65666d; }
+
+.modal.fade.show { opacity: 1; }
+
+.modal.fade .modal-dialog { -webkit-transform: translate(0); -moz-transform: translate(0); transform: translate(0); }
+.modal.fade { opacity: 0; -webkit-transition: opacity 0.3s linear; -o-transition: opacity 0.3s linear; transition: opacity 0.3s linear; }
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn { -webkit-animation-name: zoomIn; animation-name: zoomIn; }
+
+@-webkit-keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.zoomOut { -webkit-animation-name: zoomOut; animation-name: zoomOut; }
+
+.tab-pane h6 { font-size: 20px; }
+
+.modal-content h3 { font-weight: 700; font-size: 25px; }
+
+.loginPage h1 { font-weight: 700; font-size: 25px; }
+
+.custom-control-input:checked ~ .custom-control-label::before { background-color: #242464; border-color: #242464; }
+
+.setDate i, .setTime i { top: 11px; right: 10px; color: #242464; }
+
+.ui-timepicker, .ui-timepicker-viewport { box-sizing: content-box; height: 205px; }
+.ui-timepicker { list-style: none; text-align: center; }
+.ui-timepicker-viewport { padding: 0px; overflow-x: hidden; }
+.ui-timepicker-standard { font-family: Verdana, Arial, sans-serif; font-size: 0.9em; background-color: #FFF; position: absolute; 
+border: 1px solid #AAA; color: #222; }
+.ui-timepicker-standard a { border: 1px solid transparent; color: #222; display: block; text-decoration: none; }
+.ui-timepicker-standard .ui-state-hover { background-color: #DADADA; color: #212121; }
+.ui-timepicker-corners, .ui-timepicker-corners .ui-corner-all { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+
+#tabsPRY .nav-tabs { background: #f1f1f1; border-radius: 30px; padding: 10px; display:none; }
+#tabsPRY .nav-tabs li a { background: #242464; padding: 10px 41px; color: #fff; text-align: center; border-radius: 20px; text-decoration: none; }
+#tabsPRY .nav-tabs li a.active { background: #faa40c; }
+
+#tabsPRY .success { padding: 5px 0; border-radius: 20px; background: #1a8a54; color: #fff; width: 100%; text-align: center; }
+#tabsPRY .inProgress { padding: 5px 0; border-radius: 20px; background: #f2b10f; color: #fff; width: 100%; text-align: center; }
+
+/*#notificationConfig .dataTables_length, #notificationConfig #dataTable_filter { display: none; }*/
+
+.formAddRemove { background: grey; width: 100%; }
+
+.multi-field-wrapper { background: #ebebeb; border-radius: 5px; }
+.removeInputForm .remove.Others { display: none; }
+
+#joshDashboard .card-header { display:none!important; }
+
+.add6, .add7, .billAreaComment { display: none; }
+
+article { display: none; }
+article.on { display: block; }
+
+.addForms { background: #f1f1f1; border-radius: 5px; }
+
+.col-1-5 { width: 20%; float: left; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; }
+
+.addForms .add, .addForms .add2, .addForms .add3, .addForms .add4, .addForms .add5, .addForms .add6, .addForms .add7, .newFieldPopUp { color: #242464; }
+
+#additionalForms .input { position: relative; }
+#additionalForms .delete { position: absolute; top: 9px; right: 20px; color: #242464; text-decoration: none; }
+
+#additionalForms2 .input2 { position: relative; padding-top: 20px; }
+#additionalForms2 .delete2 { position: absolute; top: 48px; right: 20px; color: #242464; text-decoration: none; }
+
+#additionalForms3 .input3 { position: relative; padding-top: 20px; }
+#additionalForms3 .delete3 { position: absolute; top: 44px; right: 20px; color: #242464; text-decoration: none; }
+
+#additionalForms4 .input4 { position: relative; padding-top: 5px; }
+#additionalForms4 .delete4 { position: absolute; top: 40px; right: 20px; color: #242464; text-decoration: none; }
+
+#additionalForms5 .input5 { position: relative; padding-top: 5px; }
+#additionalForms5 .delete5 { position: absolute; top: 16px; right: 20px; color: #242464; text-decoration: none; }
+
+#additionalForms6 .input6 { position: relative; padding-top: 5px; }
+#additionalForms6 .delete6 { position: absolute; top: 31px; right: 20px; color: #242464; text-decoration: none; }
+
+#additionalForms7 .input7 { position: relative; padding-top: 5px; }
+#additionalForms7 .delete7 { position: absolute; top: 38px; right: 79px; color: #242464; text-decoration: none; }
+
+#additionalForms7 .cloneAdd { display: none; }
+
+.taskCollapseDiv { display: none; font-size: 15px; }
+.taskCollapse i { font-size: 23px; transition: 0.2s; -webkit-transition: 0.2s; -moz-transition: 0.2s; }
+.taskCollapse.active i { font-size: 23px; -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); transform: rotate(180deg); transition: 0.2s; 
+  -webkit-transition: 0.2s; -moz-transition: 0.2s; }
+
+.invalidData { color: red; }
+.taskCollapseDiv span { background-color: rgba(0,0,0,0.05); }
+
+.backToIndexPage { font-size: 40px; color: #242464; }
+.backToIndexPage:hover { color: #faa40c; transition: 0.2s; -webkit-transition: 0.2s; -moz-transition: 0.2s; }
+
+.jobHead { font-size: 16px; }
+.jobDetails { font-size: 14px; }
+
+.jobInner .success { background: #1a8a54; border-radius: 100px; }
+
+#additionalForms .input label, #additionalForms5 .input5 label, #additionalForms6 label { display: none; }
+
+.modal { overflow: hidden!important; }
+
+.longEnough { max-height: 440px; width: 100%; overflow: auto; }
+
+.rawTxt, .originalDoc { display: none; }
+
+.colCss h3 { font-size: 16px; }
+
+.originalDoc img { width: 100%; }
+
+.templateConfigViewModal a { color: #242464; }
+
+.tempTest { display: none; }

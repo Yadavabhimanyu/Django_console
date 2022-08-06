@@ -1,0 +1,97 @@
+
+/*---------------- Customised media queries ------------------*/ 
+
+@media (max-width: 768px){
+
+  .sidebar-brand-icon { display: none!important; }
+  .sidebar .sidebar-brand .sidebar-brand-text { display: inline!important; } 
+
+  table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td { font-size: 15px; }
+
+
+}
+
+@media (min-width: 768px){
+
+  .sidebar.toggled .nav-item .nav-link span { font-size: .75rem; display: block; }
+  .sidebar .nav-item .nav-link span { font-size: 1rem; } 
+
+  .panel-heading {
+    display: none;
+  }
+  .panel {
+    border: none;
+    box-shadow: none;
+  }
+  .panel-collapse {
+    height: auto;
+  }
+  .panel-collapse.collapse {
+    display: block;
+  }
+
+
+} 
+
+@media (max-width: 767px){
+
+  .sidebar .nav-item .nav-link span { font-size: .80rem!important; }
+  .detail-1 a { font-size: 14px; }
+  div.dataTables_wrapper div.dataTables_filter label { font-size: 14px; }
+
+  #tabsPRY .tab-content .tab-pane {
+    display: block!important;
+  }
+  #tabsPRY .nav-tabs {
+    display: none!important;
+  }
+  .panel-title a {
+    display: block; padding: 15px; font-size: 16px;
+  }
+
+
+  .panel .panel-heading { background: #242464; border-radius: 5px; }
+  .panel .panel-heading.show { background: #faa40c; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0; }
+  .panel .panel-heading.show .panel-title { margin-bottom: 0; }
+
+  .panel {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0; 
+    margin-top: -2px; 
+  }
+
+  .panel-collapse.show .card { border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; }
+
+
+  .panel a { color: #fff; }
+  .tab-pane:first-child .panel {
+    border-radius: 5px;
+  }
+  .tab-pane:last-child .panel {
+    border-radius: 5px;
+  }
+
+  #tabsPRY .nav-tabs { display: none!important; }
+
+
+
+}
+
+@media (max-width: 640px){
+
+  .sidebar .nav-item .nav-link span { font-size: .80rem!important; }
+  /*div.dataTables_wrapper div.dataTables_filter { text-align: right; }
+
+  .dataTables_filter { margin-top: 0; }
+  div.dataTables_wrapper div.dataTables_filter { text-align: center; }
+
+  /*div.table-responsive > div.dataTables_wrapper > div.row:first-child > div[class^="col-"]:last-child { padding-left: 0; }*/
+
+  .projectDetails { width: 100%!important; text-align: center; margin: 0 auto; }
+
+  .modal-content h3 { font-size: 22px; }
+
+
+}
