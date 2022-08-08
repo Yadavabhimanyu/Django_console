@@ -25,15 +25,11 @@ def external(function_li,process_name):
 #####################
 # Create your views here.
 def index(request):
-    context={}
+    context={"status":'status at index page'}
     return render(request,'index.html',context)
 
 def new_process(request):
     if request.method=='POST':
-        print((request.POST.items()))
-        for j in request.POST.items():
-            print(j)
-        print(request.FILES.keys())
         print("ggggggggggggggggggg")
         print(request.POST.get('projectName'))
         print(request.POST.get('processName'))
@@ -41,11 +37,11 @@ def new_process(request):
         print(request.POST.get('todate'),"tooodate")
         print(request.POST.get('totime'),"totimeeeeeeeeee")
         for i in request.FILES.keys():
-            print(i)
-            # handle_uploaded_file(request.FILES[i],request.POST.get('projectName'))
-            # project_f = request.FILES[i].name
-            # external([project_f],request.POST.get('projectName'))
+            handle_uploaded_file(request.FILES[i],request.POST.get('projectName'))
+            project_f = request.FILES[i].name
+            external([project_f],request.POST.get('projectName'))
     context = {"status":request.POST.get('projectName')}
+
     return render(request,'index.html',context)
 
 def login(request):

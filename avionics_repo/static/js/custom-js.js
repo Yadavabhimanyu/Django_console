@@ -346,7 +346,10 @@ $(".rawTxtClose, .origDocClose").click(function() {
 
 $(document).ready(function () {
     $('#t1').on('change', function () {
-        $('#t1').clone(true, true).attr('id', 'cloned_t').appendTo('#clonedDiv').val("");
+    var num =$("div#clonedDiv").children().length
+    var newNum = new Number (num +1 )
+        $('#t1').clone(true, true).attr('name', 'projectfile'+newNum).appendTo('#clonedDiv').val("");
+
     });
 });
 
@@ -354,7 +357,7 @@ $(document).ready(function() {
     var max_fields      = 10; //maximum input boxes allowed
     var wrapper         = $(".input_fields_wrap"); //Fields wrapper
     var add_button      = $(".add_field_button"); //Add button ID
-    
+
     var x = 1; //initlal text box count
     $(add_button).click(function(e){ //on add input button click
         e.preventDefault();
