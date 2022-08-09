@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule</title>
+</head>
+<body>
+{% for proc in process %}
+<label for="car2">Choose {{forloop.counter}}  car:</label>
+    <select  id="car{{forloop.counter}}" name="car{{forloop.counter}}">
+  {% for p in proc %}
+        <option value="none" selected disabled hidden>Select an Option</option>
+        <option value='{{p}}'>{{p}}</option>
+   {% endfor %}
+        </select>
+            </div>
+{% endfor%}
+
+</body>
+</html>

@@ -5,5 +5,6 @@ urlpatterns = [
     path('',views.index, name='index'),
     path('login/',views.login, name='login'),
     path('new-process/',views.new_process, name='new-process'),
+    path('schedule-project/<str:pk>',views.schedule_project, name='schedule-project'),
 
 ]

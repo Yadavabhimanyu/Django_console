@@ -957,7 +957,12 @@
                                     
                                 </div>
                             </div>
-                          {{status}}
+                          {% for project in projects %}
+                            <li><a href="{% url 'schedule-project' project.project_name %}">{{project.project_name}}</a></li>
+
+                            {% endfor %}
+
+
                         </div>
 
                         <div class="tab-pane" id="tabsUser" role="tabpanel">
