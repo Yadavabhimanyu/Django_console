@@ -929,7 +929,7 @@
                                                 </div>
 
                                                 <div class="col-lg-4 mb-3 setTime position-relative">
-                                                    <label class="mb-0" for="timepicker">To Date</label>
+                                                    <label class="mb-0" for="timepicker">To Time</label>
 
                                                     <div class="dateHolder position-relative">
                                                         <input type="text" id="input" class="timepicker form-control" name="totime">
@@ -952,15 +952,18 @@
                                             </div>
 
                                         </div>
-
                                     </form>
                                     
                                 </div>
                             </div>
-                          {% for project in projects %}
-                            <li><a href="{% url 'schedule-project' project.project_name %}">{{project.project_name}}</a></li>
-
+                            <label> <b>Update Task </b></label>
+                            {% if projects%}
+                            {% for project in projects %}
+                            <li><a href="{% url 'schedule-project' project.process_name %}">{{project.process_name}}</a> <label>({{project.project_name}})</label></li>
                             {% endfor %}
+                            {% else %}
+                            <p>No Task Found</p>
+                            {% endif %}
 
 
                         </div>
