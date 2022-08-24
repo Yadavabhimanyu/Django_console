@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Process</title>
+</head>
+<body>
+<div>
+  <form method="post" action="">
+      {% csrf_token %}
+      <div>
+      <p>Are you sure , you want to delete Process - "{{ obj.process_name }}" ?</p>
+          </div>
+      <a href="{{request.META.HTTP_REFERER}}">Go Back </a>
+      <input type="submit" value="confirm"/>
+  </form>
+</div>
+
+</body>
+</html>
+
+
+

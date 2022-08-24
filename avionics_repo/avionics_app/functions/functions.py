@@ -9,6 +9,7 @@ def handle_uploaded_file(f,process_name):
     path_f = os.path.join(path, folder_path)
     process_folder=os.path.join(path_f,process_name)
     print(process_folder)
+    print(f,"lengthhhhhhhh")
     if os.path.exists(process_folder):
         print('jjjjj')
     else:
@@ -27,3 +28,16 @@ def convert_to_24_h(hour):
         if "12" in hour[:2]:
             return hour[:-2]
     return str(int(hour[:2]) + 12) + hour[2:5]
+
+
+def clear_old_files(process_name):
+    path = value
+    folder_path = f"avionics_app/static/upload"
+    path_f = os.path.join(path, folder_path)
+    process_folder = os.path.join(path_f, process_name)
+    print(process_folder)
+    if os.path.exists(process_folder):
+        print('jjjjj')
+        for j in os.listdir(process_folder):
+            os.remove(os.path.join(process_folder, j))
+

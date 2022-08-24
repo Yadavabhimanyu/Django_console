@@ -956,10 +956,23 @@
                                     
                                 </div>
                             </div>
-                            <label> <b>Update Task </b></label>
+                            <script>
+                                {% if process_check  %}
+                                    alert("process already exists");
+                                {% endif %}
+                            </script>
+
+                            <label> <h4><b>Update Task </b></h4></label>
                             {% if projects%}
                             {% for project in projects %}
-                            <li><a href="{% url 'schedule-project' project.process_name %}">{{project.process_name}}</a> <label>({{project.project_name}})</label></li>
+                            <div>
+                                <div>
+                                <a href="{% url 'delete_process' project.id %}">Delete process</a>
+                                    <a href="{% url 'update_task' project.id %}">update process</a>
+                                    </div>
+                            <a href="{% url 'schedule-project' project.process_name %}">{{project.process_name}}</a> <label>({{project.project_name}})</label>
+                                <hr>
+                            </div>
                             {% endfor %}
                             {% else %}
                             <p>No Task Found</p>
