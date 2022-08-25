@@ -957,8 +957,12 @@
                                 </div>
                             </div>
                             <script>
-                                {% if process_check  %}
+                                {% if 'alreadyexists' == process_check  %}
                                     alert("process already exists");
+                                {% elif 'error' == process_check %}
+                                    alert("Error occured");
+                                {% else %}
+                                    console.log("all good");
                                 {% endif %}
                             </script>
 

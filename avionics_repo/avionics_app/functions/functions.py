@@ -20,11 +20,11 @@ def handle_uploaded_file(f,process_name):
             destination.write(chunk)
 
 def convert_to_24_h(hour):
-    if "AM" in hour:
+    if "AM" in hour or 'a.m.' in hour:
         if "12" in hour[:2]:
             return "00" + hour[2:-2]
         return hour[:-2]
-    elif "PM" in hour:
+    elif "PM" in hour or 'p.m.' in hour:
         if "12" in hour[:2]:
             return hour[:-2]
     return str(int(hour[:2]) + 12) + hour[2:5]
