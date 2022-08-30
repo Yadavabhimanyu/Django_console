@@ -7,10 +7,10 @@ from .models import process_file_repo
 from .functions.functions import handle_uploaded_file,convert_to_24_h,clear_old_files
 
 
-
 #####################
 # Create your views here.
 def index(request):
+    print(os.system('which python'))
     projects = process_file_repo.objects.all()
     context = {"projects": projects}
     return render(request, 'index.html', context)
@@ -103,7 +103,8 @@ def update_task(request,pk):
         to_time = convert_to_24_h(to_time)
         print(to_time)
         project_file = ''
-        clear_old_files(project_name + '/' + process_name)
+        if len(list(request.FILES.keys()))!=0:
+            clear_old_files(project_name + '/' + process_name)
         for i in request.FILES.keys():
             project_f = request.FILES[i].name
             if project_file == '':
@@ -116,9 +117,10 @@ def update_task(request,pk):
         process.from_date=from_date
         process.to_date=to_date
         process.to_time=to_time
-        
         if len(project_file)!=0:
             process.project_file=project_file
+
+
         process.save()
         return redirect('index')
     context={'obj': process}
