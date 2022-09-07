@@ -35,7 +35,7 @@ def clear_old_files(process_name):
     folder_path = f"avionics_app/static/upload"
     path_f = os.path.join(path, folder_path)
     process_folder = os.path.join(path_f, process_name)
-    print(process_folder)
+    print(process_folder,"proces folder")
     if os.path.exists(process_folder):
         print('jjjjj')
         for j in os.listdir(process_folder):

@@ -53,7 +53,7 @@ $(document).ready(function(){
 });
 
 $('.timepicker').timepicker({
-    timeFormat: 'h:mm p',
+    timeFormat: 'H:mm',
     interval: 30,
     minTime: '10',
     dynamic: false,

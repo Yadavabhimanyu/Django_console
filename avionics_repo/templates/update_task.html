@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +82,8 @@
                     <label class="mb-0" for="timepicker">To Time</label>
 
                     <div class="dateHolder position-relative">
-                        <input type="text" id="input" class="timepicker form-control" name="totime" value="{{obj.to_time}}">
+                        {% load custom_filter %}
+                        <input type="text" id="input" class="timepicker form-control" name="totime" value="{{obj.to_time|time_format_change}}">
                         <i class="fas fa-fw fa-clock position-absolute"></i>
                     </div>
                 </div>

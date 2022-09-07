@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-yr11ib70!icw5#+a!9ktu=s4j4dj3xza@89*y(am2@nvu4&w0=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -68,6 +68,9 @@ BASE_DIR / 'templates',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'custom_filter': 'templates.custom_filter',
+            }
         },
     },
 ]

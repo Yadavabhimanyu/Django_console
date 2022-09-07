@@ -10,7 +10,6 @@ from .functions.functions import handle_uploaded_file,convert_to_24_h,clear_old_
 #####################
 # Create your views here.
 def index(request):
-    print(os.system('which python'))
     projects = process_file_repo.objects.all()
     context = {"projects": projects}
     return render(request, 'index.html', context)
@@ -95,15 +94,25 @@ def update_task(request,pk):
         to_date = request.POST.get('todate')
         to_time = str(request.POST.get('totime'))
         print(to_time)
-        if ':' in to_time:
+        if ':' in to_time :
+            print("ccccccccc")
             if len(to_time.split(':')[0]) == 1:
+                print("yyyyyyyy")
                 to_time = '0' + to_time
         else:
-            to_time=to_time.split(' ')[0]+':00 '+ to_time.split(' ')[1].replace('.','').upper()
+            if len(to_time.split(' ')[0])==1:
+                print("hhhhhhhhh")
+                to_time = '0'+to_time.split(' ')[0] + ':00 ' + to_time.split(' ')[1].replace('.', '').upper()
+            else:
+                print("ggggggg")
+                to_time=to_time.split(' ')[0]+':00 '+ to_time.split(' ')[1].replace('.','').upper()
+            print(to_time)
         to_time = convert_to_24_h(to_time)
         print(to_time)
+        to_time=to_time.strip()
         project_file = ''
         if len(list(request.FILES.keys()))!=0:
+            print("inside clear old files")
             clear_old_files(project_name + '/' + process_name)
         for i in request.FILES.keys():
             project_f = request.FILES[i].name
@@ -119,8 +128,6 @@ def update_task(request,pk):
         process.to_time=to_time
         if len(project_file)!=0:
             process.project_file=project_file
-
-
         process.save()
         return redirect('index')
     context={'obj': process}
