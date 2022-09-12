@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-yr11ib70!icw5#+a!9ktu=s4j4dj3xza@89*y(am2@nvu4&w0=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,16 +82,12 @@ WSGI_APPLICATION = 'avionics_repo.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'Product_demo',
-       'USER': 'postgres',
-       'PASSWORD': 'albert123',
-       'HOST': 'localhost',
-       'PORT': '5432',
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
-
+#enter password
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

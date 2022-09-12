@@ -53,7 +53,7 @@ $(document).ready(function(){
 });
 
 $('.timepicker').timepicker({
-    timeFormat: 'H:mm',
+    timeFormat: 'h:mm p',
     interval: 30,
     minTime: '10',
     dynamic: false,
@@ -353,6 +353,15 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('#dropdown1').on('change', function () {
+    var num =$("div#clonedDiv").children().length
+    var newNum = new Number (num +1 )
+        $('#dropdown1').clone(true, true).attr('name', 'projectfile'+newNum).appendTo('#clonedDiv2').val("");
+
+    });
+});
+
 $(document).ready(function() {
     var max_fields      = 10; //maximum input boxes allowed
     var wrapper         = $(".input_fields_wrap"); //Fields wrapper
@@ -373,7 +382,22 @@ $(document).ready(function() {
 });
 
 
+$(document).ready(function() {
 
+    $('#addTask').click(function(){
+
+          var intId = $("#taskArea .w-row").length + 1 || 1;
+
+          var presFields = $('<div class="w-row mb-4"><div class="col-12 taskLabel"><label>Task' + intId + '</label></div><div class="fieldsDiv"><div class="col-4"><label class="mb-0" for="selectFile' + intId + '">Select File <span class="text-color-red">*</span></label><input type="file" id="selectFile' + intId + '" name="selectFile' + intId + '" data-name="selectFile' + intId + '" required="" class="form-control select-field w-select"></div><div class="col-4"><label class="mb-0" for="selectRPA' + intId + '">Select RPA <span class="text-color-red">*</span></label><select id="selectRPA' + intId + '" name="selectRPA' + intId + '" data-name="selectRPA' + intId + '" required="" class="custom-select form-control select-RPA select-field w-select"><option value="">Select</option><option value="10 Days">10 Days</option><option value="20 Days">20 Days</option><option value="50 Days">50 Days</option><option value="0 Days">0 Days</option></select></div><div class="col-4"><label class="mb-0" for="selectPRY' + intId + '">Select Supply <span class="text-color-red">*</span></label><select id="selectPRY' + intId + '" name="selectPRY' + intId + '" data-name="selectPRY' + intId + '" required="" class="custom-select form-control select-PRY select-field w-select"><option value="">Select</option><option value="30 Days">30 Days</option><option value="60 Days">60 Days</option><option value="90 Days">90 Days</option><option value="180 Days">180 Days</option></select></div></div></div>');
+
+        $('#taskArea').append(presFields);
+    });
+
+    $('#removeTask').click(function(){
+          $("#taskArea .w-row:last").not(':first-child').remove();
+    });
+
+});
 
 
 

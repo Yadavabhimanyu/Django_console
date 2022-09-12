@@ -1,0 +1,181 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content2 %}
+
+<div id="templateConfig">
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseThree">Template Configuration</a>
+            </h4>
+
+        </div>
+
+        <div id="collapseThree" class="panel-collapse collapse in">
+
+            <div class="panel-body">
+
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+
+                            <div class="d-sm-flex justify-lg-content-start mb-4 projectDetails">
+
+                                <div class="col-sm-12 col-md-12 detail-1 pl-0">
+                                    <a class="d-sm-inline-block btn btn-md btn-primary shadow-sm" class="dropdown-item" href="#exampleModalLg" data-toggle="modal" data-target=".createTemplateModal">Add New</a>
+                                </div>
+
+                            </div>
+
+                            <table id="myTable2" class="table display table-striped table-bordered table-hover dataTable no-footer dtr-inline" cellspacing="0" width="100%">
+
+                                <thead>
+
+                                    <tr>
+                                        <th>Template Name</th>
+                                        <th>Domain</th>
+                                        <th>Sub Domain</th>
+                                        <th>Requestor</th>
+                                        <th>Status</th>
+                                        <th>Status</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>Bills_120420221023</td>
+                                        <td>Bills</td>
+                                        <td>Electricity Bill</td>
+                                        <td>ocruser11</td>
+                                        <td><label class="success mb-0">Approved</label></td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalTemplateConfigView"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Invoice_300320221830</td>
+                                        <td>Invoice</td>
+                                        <td>Service</td>
+                                        <td>swattoocr24</td>
+                                        <td><label class="success mb-0">Approved</label></td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalTemplateConfigView"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Bank_150320221456</td>
+                                        <td>Bank</td>
+                                        <td>Statement</td>
+                                        <td>ocruser11</td>
+                                        <td><label class="success mb-0">Approved</label></td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalTemplateConfigView"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>multiFileTest</td>
+                                        <td>Bills</td>
+                                        <td>Electricity Bill</td>
+                                        <td>swattoocr24</td>
+                                        <td><label class="success mb-0">Approved</label></td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalTemplateConfigView"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Kerela_Bills_070320221730</td>
+                                        <td>Bills</td>
+                                        <td>Electricity Bill</td>
+                                        <td>swattoocr24</td>
+                                        <td><label class="success mb-0">Approved</label></td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalTemplateConfigView"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Vedanta_Report_Test</td>
+                                        <td>Bills</td>
+                                        <td>Receipt</td>
+                                        <td>swattoocr24</td>
+                                        <td><label class="success mb-0">Approved</label></td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalTemplateConfigView"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Bills_020320221248_ved</td>
+                                        <td>Bills</td>
+                                        <td>Receipt</td>
+                                        <td>swattoocr24</td>
+                                        <td><label class="success mb-0">Approved</label></td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalTemplateConfigView"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Electric_bill_02</td>
+                                        <td>Bills</td>
+                                        <td>Electricity Bill</td>
+                                        <td>swattoocr24</td>
+                                        <td><label class="success mb-0">Approved</label></td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalTemplateConfigView"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Bills_020320221147_v</td>
+                                        <td>Bills</td>
+                                        <td>Electricity Bill</td>
+                                        <td>swattoocr24</td>
+                                        <td><label class="success mb-0">Approved</label></td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalTemplateConfigView"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Vedanta_Report</td>
+                                        <td>Bills</td>
+                                        <td>Electricity Bill</td>
+                                        <td>swattoocr24</td>
+                                        <td><label class="success mb-0">Approved</label></td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalTemplateConfigView"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                             </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content2 %}

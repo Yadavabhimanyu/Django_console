@@ -1,0 +1,156 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content2 %}
+
+<div id="jobDashboard">
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseOne">Job Dashboard</a>
+            </h4>
+
+        </div>
+
+        <div id="collapseOne" class="panel-collapse collapse in">
+
+            <div class="panel-body">
+
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+
+                            <table class="table display table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Domain</th>
+                                        <th>Sub Domain</th>
+                                        <th>No. of Pages</th>
+                                        <th>Job Status</th>
+                                        <th>OCR Status</th>
+                                        <th>Action</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="myTable">
+
+                                    <tr>
+                                        <td>Bank_Statement_1503</td>
+                                        <td>Bank</td>
+                                        <td>Statement</td>
+                                        <td>32</td>
+                                        <td><label class="success mb-0">Success</label></td>
+                                        <td><label class="success mb-0">Success</label></td>
+                                        <td>
+                                            <a class="view" href="job-dashboard-view.html"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Asian_wire_14</td>
+                                        <td>Invoice</td>
+                                        <td>Service</td>
+                                        <td>3</td>
+                                        <td><label class="success mb-0">Success</label></td>
+                                        <td><label class="success mb-0">Success</label></td>
+                                        <td>
+                                            <a class="view" href="job-dashboard-view.html"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>ASIAN_SATYA_14</td>
+                                        <td>Invoice</td>
+                                        <td>Service</td>
+                                        <td>0</td>
+                                        <td><label class="success mb-0">Success</label></td>
+                                        <td><label class="success mb-0">Success</label></td>
+                                        <td>
+                                            <a class="view" href="job-dashboard-view.html"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Bank_Statement_Test_1103</td>
+                                        <td>Bank</td>
+                                        <td>Statement</td>
+                                        <td>0</td>
+                                        <td><label class="inProgress mb-0">In Progress</label></td>
+                                        <td><label class="inProgress mb-0">In Progress</label></td>
+                                        <td>
+                                            <a class="view" href="job-dashboard-view.html"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>SatyaWire11</td>
+                                        <td>Invoice</td>
+                                        <td>Service</td>
+                                        <td>0</td>
+                                        <td><label class="inProgress mb-0">In Progress</label></td>
+                                        <td><label class="inProgress mb-0">In Progress</label></td>
+                                        <td>
+                                            <a class="view" href="job-dashboard-view.html"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Asian_wire_1103</td>
+                                        <td>Invoice</td>
+                                        <td>Service</td>
+                                        <td>13</td>
+                                        <td><label class="inProgress mb-0">In Progress</label></td>
+                                        <td><label class="inProgress mb-0">In Progress</label></td>
+                                        <td>
+                                            <a class="view" href="job-dashboard-view.html"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>AsianWireSatyaSteel11</td>
+                                        <td>Invoice</td>
+                                        <td>Service</td>
+                                        <td>0</td>
+                                        <td><label class="success mb-0">Success</label></td>
+                                        <td><label class="success mb-0">Success</label></td>
+                                        <td>
+                                            <a class="view" href="job-dashboard-view.html"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Asian_Wire_Satya_Steel</td>
+                                        <td>Invoice</td>
+                                        <td>Service</td>
+                                        <td>0</td>
+                                        <td><label class="success mb-0">Success</label></td>
+                                        <td><label class="success mb-0">Success</label></td>
+                                        <td>
+                                            <a class="view" href="job-dashboard-view.html"><i class="fas fa-fw fa-eye"></i> View</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content2 %}

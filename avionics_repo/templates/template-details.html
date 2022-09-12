@@ -1,0 +1,139 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content2 %}
+
+<div id="templateDetails">
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseTwo">Template Details</a>
+            </h4>
+
+        </div>
+
+        <div id="collapseTwo" class="panel-collapse collapse in">
+
+            <div class="panel-body">
+
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+
+                            <div class="d-sm-flex justify-lg-content-start mb-4 projectDetails">
+
+                                <div class="col-sm-12 col-md-12 detail-1 pl-0">
+                                    <a class="d-sm-inline-block btn btn-md btn-primary shadow-sm" class="dropdown-item" href="#exampleModalSchemaCreation" data-toggle="modal" data-target=".schemaCreationModal">Add New</a>
+                                </div>
+
+                            </div>
+
+                            <table id="myTable2" class="table display table-striped table-bordered table-hover dataTable no-footer dtr-inline" cellspacing="0" width="100%">
+
+                                <thead>
+
+                                    <tr>
+                                        <th>Domain</th>
+                                        <th>Sub Domain</th>
+                                        <th>Field Name</th>
+                                        <th>Template</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>0</td>
+                                         <td colspan="3"></td>
+                                        <td class="d-none"></td>
+                                        <td class="d-none"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Authbridge</td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Annirudh">Annirudh</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Age,Name,Qualification">Age,Name,Qualification</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="digital job,scanned job,Temp new digi">digital job,scanned job,Temp new digi</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td rowspan="2">Bank</td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Cheque_Details">Cheque_Details</span></td>
+                                        <td colspan="2"><span data-container="body" data-toggle="popover" data-placement="top" data-content="AccountNo,IFSCno">AccountNo,IFSCno</span></td>
+                                        <td class="d-none"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Statement">Statement</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="AccountName,AccountNo,AccountOpeningDate,AccountType,BalanceAmount,City,CustomerId,GeneratedBy,GenerationDate,HomeBranch,IFSC Code,PinCode,TotalDeposits,TotalWithdrawals">AccountName,AccountNo,AccountOpeningDate ...</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Bank_150320221456,Bank_250220221624_dt,Bank_Statement">Bank_150320221456,Bank_250220221624_dt,Ban...</span></td>
+                                        <td class="d-none"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Bank Document</td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Cheque Book">Cheque Book</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="AccountNo,BankName,IFSC,PinCode">AccountNo,BankName,IFSC,PinCode</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Cheque_template">Cheque_template</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Bill</td>
+                                        <td colspan="3"><span data-container="body" data-toggle="popover" data-placement="top" data-content="FOOD_BILL">FOOD_BILL</td>
+                                        <td class="d-none"></td>
+                                        <td class="d-none"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td rowspan="3">Bills</td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Electricity Bill">Electricity Bill</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="AADHAR,accountnumber,AMOUNT,Bill Area,Billing Period,billingdate,billnumber,billtype,Connected Load,Consumer No,Contract Demand,Customer Care,Date,DC Date,DESCRIPTION OF GOODS,DOB,duedate,Email,enddate,Energy Charges,Final Reading,Fixed Charges,GENDER,Grand Total,GST No Client,GST No Lohia,HSN ,Initial Reading,INVOICE NO,KSEBL GSTIN,KWH,kwhendreading,kwhstartreading,Lohia State,Meter Digits ,metercomplexity,MobilePhone,MR CGST,MR SGST,Net Payable,OMF,PAN No,PART NO,Phone,PO Date,PO No,Power Unit,Power Unit Zone,QTY,RATE,rt,Section,Security Deposit,startdate,State,Total Amt,Trading,Units,Zone">AADHAR,accountnumber,AMOUNT,Bill Area,Billing ...</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Adani_demo,AdaniBill16,AdaniBill17,AdaniDetails,Asian Wire,Bills_010220220032,Bills_010320221145,Bills_020320221147_v,Bills_030220221723,Bills_040220221348,Bills_120420221023,Bills_280220221119_b,BillTest151221,BTest,DillTest12,discom_bill,Electric_bill_02,ElectricBillId,Form49Template,Jio bill,Kerala,Kerela_Bills_070320221730,LAYA,multiFileTest,new temp,NS_Timber,nwtmplt,OCRTCP,RAVISH_AADHAR_DETAILS,sampleJobPDF,sampleJobPDF1,SKF_INDIA,smstemplate1,Template8,Template9992,templatetest,templateTest121,test scann,test_1eew,testing,TestTemplate236,This is another template for JIO bill,This is my bill for Jio">Adani_demo,AdaniBill16,AdaniBill17,AdaniDe...</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Receipt">Receipt</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Date,Name,SrNo,Total">Date,Name,SrNo,Total</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Bills_020320221248_ved,Vedanta_Report,Vedanta_Report_Test">Bills_020320221248_ved,Vedanta_Report,Veda...</span></td>
+                                        <td class="d-none"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="test sub">test sub</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="BookingNo,Dated,Name,SNo,TOTAL">BookingNo,Dated,Name,SNo,TOTAL</span></td>
+                                        <td><span data-container="body" data-toggle="popover" data-placement="top" data-content="Cash_Memo,PLANT_REPORT">Cash_Memo,PLANT_REPORT</span></td>
+                                        <td class="d-none"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Certificate</td>
+                                        <td colspan="3"><span data-container="body" data-toggle="popover" data-placement="top" data-content="Cash_Memo,PLANT_REPORTBirth">Birth Certificate</span></td>
+                                        <td class="d-none"></td>
+                                        <td class="d-none"></td>
+                                    </tr>
+
+                                </tbody>
+
+                             </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content2 %}

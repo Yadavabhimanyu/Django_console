@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!--<div class="tab-pane" id="tabsUser" role="tabpanel">-->
+
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-uppercase">User Management</h6>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+
+                <div class="d-sm-flex justify-lg-content-start mb-4 projectDetails">
+
+                    <div class="col-sm-12 col-md-12 detail-1 pl-0">
+                        <a class="d-sm-inline-block btn btn-md btn-primary shadow-sm" class="dropdown-item" href="#exampleModalCreateUser" data-toggle="modal" data-target=".bd-example-modal-lg">Create New User</a>
+                    </div>
+
+                </div>
+
+                <table class="table display table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+
+                        <tr>
+                            <th>User Name</th>
+                            <th>Role</th>
+                            <th>Email Id</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="myTable">
+
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>ocr_requestor</td>
+                            <td>minchanalkar199434@gmail.com</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalUserEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalUserDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>Approver</td>
+                            <td>cosmicsky2@gmail.com</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalUserEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalUserDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>Approver</td>
+                            <td>manisha.inchanalkar@neebal.com</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalUserEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalUserDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Ashish</td>
+                            <td>admin,ocr_admin</td>
+                            <td>ashish29494@gmail.com</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalUserEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalUserDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>ashish1122</td>
+                            <td>ocr_admin</td>
+                            <td>ashish294000@gmail.com</td>
+                            <td>
+                                <a class="exampleModalEdit edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalUserEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalUserDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<!--</div>-->
+
+{% endblock %}

@@ -41,3 +41,4 @@ def clear_old_files(process_name):
         for j in os.listdir(process_folder):
             os.remove(os.path.join(process_folder, j))
 
+

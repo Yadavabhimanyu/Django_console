@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<p>{{jobs}}</p>
+{% for job in jobs %}
+<p>{{job}}</p>
+{% endfor %}
+{% endblock content %}

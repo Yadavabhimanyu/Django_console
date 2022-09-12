@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!--<div class="tab-pane" id="tabsRole" role="tabpanel">-->
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-uppercase">Role Management</h6>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+
+                <div class="d-sm-flex justify-lg-content-start mb-4 projectDetails">
+
+                    <div class="col-sm-12 col-md-12 detail-1 pl-0">
+                        <a class="d-sm-inline-block btn btn-md btn-primary shadow-sm" class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCreateRole">Create New Role</a>
+                    </div>
+
+                </div>
+
+                <table class="table display table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Users</th>
+                            <th>Projects</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="myTable">
+
+                        <tr>
+                            <td>AccountPayableClark</td>
+                            <td>viewer</td>
+                            <td>4</td>
+                            <td>9</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>admin</td>
+                            <td>admin</td>
+                            <td>12</td>
+                            <td>7</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>approver</td>
+                            <td>ocr</td>
+                            <td>6</td>
+                            <td>11</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>configurator</td>
+                            <td>executor</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>executor</td>
+                            <td>ocr</td>
+                            <td>23</td>
+                            <td>2</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>ocr_admin</td>
+                            <td>ocr</td>
+                            <td>11</td>
+                            <td>8</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>ocr_requestor</td>
+                            <td>admin</td>
+                            <td>4</td>
+                            <td>13</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>super_admin</td>
+                            <td>ocr</td>
+                            <td>9</td>
+                            <td>5</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>template_configurator</td>
+                            <td>viewer</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>viewer</td>
+                            <td>admin</td>
+                            <td>15</td>
+                            <td>2</td>
+                            <td>
+                                <a class="edit mr-2" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleEdit"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                                <a class="delete" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalRoleDelete"><i class="fas fa-fw fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<!--</div>-->
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content2 %}
+
+<div id="notificationConfig">
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseFour">Notification Configuration</a>
+            </h4>
+
+        </div>
+
+        <div id="collapseFour" class="panel-collapse collapse in">
+
+            <div class="panel-body">
+
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+
+                            <table class="table display table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="myTable2" width="100%" cellspacing="0">
+
+                                <thead>
+
+                                    <tr>
+                                        <th>Notification Type</th>
+                                        <th>Last Updated By, Date and Time</th>
+                                        <th>Action</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="myTable">
+
+                                    <tr>
+                                        <td><i class="fas fa-fw fa-mail-bulk"></i> Email Notification</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalEmailConfig"><i class="fas fa-fw fa-cogs"></i> Configure</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><i class="fas fa-fw fa-sms"></i> SMS Notification</td>
+                                        <td>ocradminuser, 16th Sep 2021, 05:03 PM</td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalEmailConfig"><i class="fas fa-fw fa-cogs"></i> Configure</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><i class="fas fa-fw fa-phone-alt"></i> Call via IVR</td>
+                                        <td>swattoocr24, 17th Nov 2021, 05:20 PM</td>
+                                        <td>
+                                            <a class="view" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModalEmailConfig"><i class="fas fa-fw fa-cogs"></i> Configure</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content2 %}
