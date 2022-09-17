@@ -381,30 +381,60 @@ $(document).ready(function() {
     })
 });
 
-
+/* ---- Form task cloning starts ---- */
 $(document).ready(function() {
 
     $('#addTask').click(function(){
 
-          var intId = $("#taskArea .w-row").length + 1 || 1;
+        var intId = $("#taskArea .w-row").length + 1 || 1;
 
-          var presFields = $('<div class="w-row mb-4"><div class="col-12 taskLabel"><label>Task' + intId + '</label></div><div class="fieldsDiv"><div class="col-4"><label class="mb-0" for="selectFile' + intId + '">Select File <span class="text-color-red">*</span></label><input type="file" id="selectFile' + intId + '" name="selectFile' + intId + '" data-name="selectFile' + intId + '" required="" class="form-control select-field w-select"></div><div class="col-4"><label class="mb-0" for="selectRPA' + intId + '">Select RPA <span class="text-color-red">*</span></label><select id="selectRPA' + intId + '" name="selectRPA' + intId + '" data-name="selectRPA' + intId + '" required="" class="custom-select form-control select-RPA select-field w-select"><option value="">Select</option><option value="10 Days">10 Days</option><option value="20 Days">20 Days</option><option value="50 Days">50 Days</option><option value="0 Days">0 Days</option></select></div><div class="col-4"><label class="mb-0" for="selectPRY' + intId + '">Select Supply <span class="text-color-red">*</span></label><select id="selectPRY' + intId + '" name="selectPRY' + intId + '" data-name="selectPRY' + intId + '" required="" class="custom-select form-control select-PRY select-field w-select"><option value="">Select</option><option value="30 Days">30 Days</option><option value="60 Days">60 Days</option><option value="90 Days">90 Days</option><option value="180 Days">180 Days</option></select></div></div></div>');
-
+        var presFields = $('<div class="w-row mb-4"><div class="col-12 taskLabel"><label>Task '+ "" + intId + '</label></div><div class="fieldsDiv"><div class="col-4"><label class="mb-0" for="selectFile' + intId + '">Select File <span class="text-color-red"></span></label><input type="file" id="selectFile' + intId + '" name="selectFile' + intId + '" data-name="selectFile' + intId + '" class="form-control select-field w-select"></div><div class="col-4"><label class="mb-0" for="selectRPA' + intId + '">Select RPA <span class="text-color-red"></span></label><select id="selectRPA' + intId + '" name="selectRPA' + intId + '" data-name="selectRPA' + intId + '" class="custom-select form-control select-RPA select-field w-select"><option value="">Select</option>{% for pro in projects %}<option value="{{ pro.project_name }}">{{ pro.process_name }}</option>{% endfor %}</select></div><div class="col-4"><label class="mb-0" for="selectPRY' + intId + '">Select PRY <span class="text-color-red">*</span></label><select id="selectPRY' + intId + '" name="selectPRY' + intId + '" data-name="selectPRY' + intId + '" class="custom-select form-control select-PRY select-field w-select"><option value="">Select</option>{% for pro in projects %}<option value="{{ pro.project_name }}">{{ pro.process_name }}</option>{% endfor %}</select></div></div></div>');
         $('#taskArea').append(presFields);
+
     });
 
     $('#removeTask').click(function(){
-          $("#taskArea .w-row:last").not(':first-child').remove();
+        $("#taskArea .w-row:last").not(':first-child').remove();
     });
 
 });
+/* ---- Form task cloning ends ---- */
 
 
+/* ---- Form validation starts ---- */
+function validateForm() {
+    var x = document.forms["myForm"]["selectFile"].value;
+    var y = document.forms["myForm"]["selectRPA"].value;
+    var z = document.forms["myForm"]["selectPRY"].value;
+    var a = document.forms["myForm"]["uploadNum"].value;
+
+    if (x == "" && y == "" && z == "" && a == "1") {
+        alert("At least one field must be filled out in every task");
+        return false;
+    }
+    else {
+        alert("Submit Successful");
+    }
+
+}
+/* ---- Form validation ends ---- */
 
 
+/* ---- No. of tasks updating in input number starts ---- */
+var y = 1;
 
+function incrementBtn() {
+    y++;
+    document.getElementById('uploadNum').value = y;
+}
 
+var z = y;
 
-
-
+function decrementBtn() {
+  if (y > 1){
+    y--;
+  }
+    document.getElementById('uploadNum').value = y;
+}
+/* ---- No. of tasks updating in input number ends ---- */
 

@@ -5,99 +5,95 @@
 
 <!--<div class="tab-pane" id="tabsProject" role="tabpanel">-->
 
-<div class="card shadow mb-4">
+    <div class="card shadow mb-4">
 
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-uppercase">Project Management</h6>
-    </div>
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-uppercase">Project Management</h6>
+        </div>
 
-    <div class="card-body">
+        <div class="card-body">
 
-        <form method="post" action="{% url 'new-process' %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group mb-0">
+            <form method="post" action="{% url 'new-process' %}" name="myForm" onsubmit="return validateForm()" enctype="multipart/form-data" id="reminderForm">
+                {% csrf_token %}
+                <div class="form-group mb-0">
 
-                <div class="row">
+                    <div class="row">
 
-                    <div class="col-lg-4 mb-3">
-                        <label class="mb-0" for="projectName">Project Name</label>
-                        <input type="text" class="form-control" id="projectName" name="projectName">
-                    </div>
-
-                    <div class="col-lg-4 mb-3">
-                        <label class="mb-0" for="projectName">Process Name</label>
-                        <input type="text" class="form-control" id="processName" name="processName">
-                    </div>
-
-                    <div class="col-lg-4 mb-3 setDate">
-                        <label class="mb-0" for="datepicker">From Date</label>
-
-                        <div class="dateHolder position-relative">
-                            <input type="text" id="datepicker" class="form-control" name="fromdate">
-                            <i class="fas fa-fw fa-calendar position-absolute"></i>
+                        <div class="col-lg-4 mb-3">
+                            <label class="mb-0" for="projectName">Project Name</label>
+                            <input type="text" class="form-control" id="projectName" name="projectName">
                         </div>
-                    </div>
 
-                    <div class="col-lg-4 mb-3 setDate position-relative">
-                        <label class="mb-0" for="datepicker2">To Date</label>
-
-                        <div class="dateHolder position-relative">
-                            <input type="text" id="datepicker2" class="form-control" name="todate">
-                            <i class="fas fa-fw fa-calendar position-absolute"></i>
+                        <div class="col-lg-4 mb-3">
+                            <label class="mb-0" for="projectName">Process Name</label>
+                            <input type="text" class="form-control" id="processName" name="processName">
                         </div>
-                    </div>
 
-                    <div class="col-lg-4 mb-3 setTime position-relative">
-                        <label class="mb-0" for="timepicker">To Time</label>
+                        <div class="col-lg-4 mb-3 setDate">
+                            <label class="mb-0" for="datepicker" >From Date</label>
 
-                        <div class="dateHolder position-relative">
-                            <input type="text" id="input" class="timepicker form-control" name="totime">
-                            <i class="fas fa-fw fa-clock position-absolute"></i>
+                            <div class="dateHolder position-relative">
+                                <input type="text" id="datepicker" class="form-control" name="fromdate">
+                                <i class="fas fa-fw fa-calendar position-absolute"></i>
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="taskArea">
+                        <div class="col-lg-4 mb-3 setDate position-relative">
+                            <label class="mb-0" for="datepicker2">To Date</label>
 
-                        <div class="w-row mb-4">
+                            <div class="dateHolder position-relative">
+                                <input type="text" id="datepicker2" class="form-control" name="todate">
+                                <i class="fas fa-fw fa-calendar position-absolute"></i>
+                            </div>
+                        </div>
 
-                            <div class="col-12 taskLabel"><label>Task 1</label></div>
+                        <div class="col-lg-4 mb-3 setTime position-relative">
+                            <label class="mb-0" for="timepicker">To Time</label>
 
-                            <div class="fieldsDiv w-100">
+                            <div class="dateHolder position-relative">
+                                <input type="text" id="input" class="timepicker form-control" name="totime">
+                                <i class="fas fa-fw fa-clock position-absolute"></i>
+                            </div>
+                        </div>
 
-                                <div class="col-4">
-                                    <label for="selectFile" class="mb-0">Select File<span
-                                            class="text-color-red">*</span></label>
-                                    <input type="file" id="selectFile" name="selectFile" data-name="selectFile"
-                                           required="" class="form-control select-pres select-field w-select">
-                                </div>
+                        <div id="taskArea">
 
-                                <div class="col-4">
+                            <div class="w-row mb-4">
 
-                                    <label for="selectRPA" class="mb-0">Select RPA<span class="text-color-red">*</span></label>
+                                <div class="col-12 taskLabel"><label>Task 1</label></div>
 
-                                    <select id="selectRPA" name="selectRPA" data-name="selectRPA" required=""
-                                            class="custom-select form-control select-RPA select-field w-select">
-                                        <option value="">Select</option>
-                                        <option value="10 Days">10 Days</option>
-                                        <option value="20 Days">20 Days</option>
-                                        <option value="50 Days">50 Days</option>
-                                        <option value="0 Days">0 Days</option>
-                                    </select>
+                                <div class="fieldsDiv w-100">
 
-                                </div>
+                                    <div class="col-4">
+                                        <label for="selectFile" class="mb-0">Select File<span class="text-color-red">*</span></label>
+                                        <input type="file" id="selectFile" name="selectFile" data-name="selectFile" class="form-control select-pres select-field w-select">
+                                    </div>
 
-                                <div class="col-4">
+                                    <div class="col-4">
 
-                                    <label for="selectPRY" class="mb-0">Select PRY<span class="text-color-red">*</span></label>
+                                        <label for="selectRPA" class="mb-0">Select RPA<span class="text-color-red">*</span></label>
 
-                                    <select id="selectPRY" name="selectPRY" data-name="selectPRY" required=""
-                                            class="custom-select form-control select-PRY select-field w-select">
-                                        <option value="">Select</option>
-                                        <option value="30 Days">30 Days</option>
-                                        <option value="60 Days">60 Days</option>
-                                        <option value="90 Days">90 Days</option>
-                                        <option value="180 Days">180 Days</option>
-                                    </select>
+                                        <select id="selectRPA" name="selectRPA" data-name="selectRPA" class="custom-select form-control select-RPA select-field w-select">
+                                            <option value="">Select</option>
+                                            {% for pro in projects %}
+                                            <option value="{{ pro.project_name }}">{{ pro.process_name }}</option>
+                                            {% endfor %}
+                                        </select>
+
+                                    </div>
+
+                                    <div class="col-4">
+
+                                        <label for="selectPRY" class="mb-0">Select PRY<span class="text-color-red">*</span></label>
+
+                                        <select id="selectPRY" name="selectPRY" data-name="selectPRY" class="custom-select form-control select-PRY select-field w-select">
+                                            <option value="">Select</option>
+                                            {% for pro in projects %}
+                                            <option value="{{ pro.project_name }}">{{ pro.process_name }}</option>
+                                            {% endfor %}
+                                        </select>
+
+                                    </div>
 
                                 </div>
 
@@ -105,27 +101,31 @@
 
                         </div>
 
-                    </div>
+                        <div class="btnsDiv mb-4 d-flex justify-content-end col-lg-12">
+                            <a href="javascript:void(0);" id="addTask" class="btn btn-primary cta-headine hover-red" onclick="incrementBtn();"><span class="text-color-red">+ </span>Add</a>
+                            <a href="javascript:void(0);" id="removeTask" class="ml-2 btn btn-primary cta-headine hover-red" onclick="decrementBtn();"><span class="text-color-red">- </span>Remove</a>
+                        </div>
 
-                    <div class="btnsDiv mb-4 d-flex justify-content-end col-lg-12">
-                        <a href="javascript:void(0);" id="addTask" class="btn btn-primary cta-headine hover-red"><span
-                                class="text-color-red">+ </span>Add</a>
-                        <a href="javascript:void(0);" id="removeTask"
-                           class="ml-2 btn btn-primary cta-headine hover-red"><span class="text-color-red">- </span>Remove</a>
-                    </div>
+                        <div class="col-lg-7 row" style="display:none">
+                            <label class="col-lg-2 col-form-label">No. of tasks</label>
+                            <div class="col-lg-3">
+                                <input type="number" id="uploadNum" name="uploadNum" value="1" class="form-control">
+                            </div>
+                        </div>
 
-                    <div class="col-lg-12 mb-3 mt-4">
-                        <button class="btn btn-primary border-0 mr-1" type="button">Cancel</button>
-                        <button class="btn btn-primary border-0" type="submit">Save</button>
+                        <div class="col-lg-12 mb-3 mt-4">
+                            <button class="btn btn-primary border-0 mr-1" type="button">Cancel</button>
+                            <button class="btn btn-primary border-0 saveBtn" type="submit">Save</button>
+                        </div>
+
                     </div>
 
                 </div>
+            </form>
 
-            </div>
-        </form>
+        </div>
 
-    </div>
-    <script>
+        <script>
         {% if 'alreadyexists' == process_check  %}
             alert("process already exists");
         {% elif 'error' == process_check %}
@@ -133,12 +133,10 @@
         {% else %}
             console.log("all good");
         {% endif %}
-
     </script>
 
-</div>
+    </div>
 
 <!--</div>-->
+
 {% endblock %}
-
-
