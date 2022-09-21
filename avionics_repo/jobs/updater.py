@@ -6,7 +6,7 @@ from avionics_app.models import process_file_repo
 
 
 def start():
-    global all_jobs
+    global all_jobs,scheduler
     scheduler=BackgroundScheduler(timezone=str(tzlocal.get_localzone()))
     all_process=process_file_repo.objects.all()
     scheduler.start()

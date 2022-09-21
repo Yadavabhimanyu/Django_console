@@ -5,95 +5,143 @@
 
 <!--<div class="tab-pane" id="tabsProject" role="tabpanel">-->
 
-    <div class="card shadow mb-4">
 
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-uppercase">Project Management</h6>
-        </div>
+<select id="locality-dropdown"></select>
+<script>
 
-        <div class="card-body">
+var project = JSON.parse('{{project_list|safe}}');
+let length = project.length;
+console.log(project);
+console.log(project[0]);
+console.log(length);
+let text="";
+for (let i = 0; i < length; i++) {
+  text += project[i].project_name + "  "+project[i].process_name +"  "+"<br>";
+};
+console.log(text);
 
-            <form method="post" action="{% url 'new-process' %}" name="myForm" onsubmit="return validateForm()" enctype="multipart/form-data" id="reminderForm">
-                {% csrf_token %}
-                <div class="form-group mb-0">
+let dropdown = document.getElementById('locality-dropdown');
+dropdown.length = 0;
+let defaultOption = document.createElement('option');
+defaultOption.text = 'Choose State/Province';
+dropdown.add(defaultOption);
+dropdown.selectedIndex = 0;
+let option;
 
-                    <div class="row">
+for (let i = 0; i < length; i++) {
+          option = document.createElement('option');
+      	  option.text = project[i].process_name;
+      	  option.value = project[i].project_name;
+      	  dropdown.add(option);
+    	} ;
+console.log(option);
 
-                        <div class="col-lg-4 mb-3">
-                            <label class="mb-0" for="projectName">Project Name</label>
-                            <input type="text" class="form-control" id="projectName" name="projectName">
+</script>
+<script>
+function populate2() {
+let depSelect = document.querySelector('#dep');
+let option;
+{% for d in departements %}
+option = document.createElement("OPTION");
+option.innerText = "{{ d.insee_dep }}";
+option.value = "{{ d.insee_dep }}";
+depSelect.appendChild(option);
+{% endfor %}
+}
+</script>
+
+<div class="card shadow mb-4">
+
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-uppercase">Project Management</h6>
+    </div>
+
+    <div class="card-body">
+
+        <form method="post" action="{% url 'new-process' %}" name="myForm" onsubmit="return validateForm()"
+              enctype="multipart/form-data" id="reminderForm">
+            {% csrf_token %}
+            <div class="form-group mb-0">
+
+                <div class="row">
+
+                    <div class="col-lg-4 mb-3">
+                        <label class="mb-0" for="projectName">Project Name</label>
+                        <input type="text" class="form-control" id="projectName" name="projectName">
+                    </div>
+
+                    <div class="col-lg-4 mb-3">
+                        <label class="mb-0" for="projectName">Process Name</label>
+                        <input type="text" class="form-control" id="processName" name="processName">
+                    </div>
+
+                    <div class="col-lg-4 mb-3 setDate">
+                        <label class="mb-0" for="datepicker">From Date</label>
+
+                        <div class="dateHolder position-relative">
+                            <input type="text" id="datepicker" class="form-control" name="fromdate">
+                            <i class="fas fa-fw fa-calendar position-absolute"></i>
                         </div>
+                    </div>
 
-                        <div class="col-lg-4 mb-3">
-                            <label class="mb-0" for="projectName">Process Name</label>
-                            <input type="text" class="form-control" id="processName" name="processName">
+                    <div class="col-lg-4 mb-3 setDate position-relative">
+                        <label class="mb-0" for="datepicker2">To Date</label>
+
+                        <div class="dateHolder position-relative">
+                            <input type="text" id="datepicker2" class="form-control" name="todate">
+                            <i class="fas fa-fw fa-calendar position-absolute"></i>
                         </div>
+                    </div>
 
-                        <div class="col-lg-4 mb-3 setDate">
-                            <label class="mb-0" for="datepicker" >From Date</label>
+                    <div class="col-lg-4 mb-3 setTime position-relative">
+                        <label class="mb-0" for="timepicker">To Time</label>
 
-                            <div class="dateHolder position-relative">
-                                <input type="text" id="datepicker" class="form-control" name="fromdate">
-                                <i class="fas fa-fw fa-calendar position-absolute"></i>
-                            </div>
+                        <div class="dateHolder position-relative">
+                            <input type="text" id="input" class="timepicker form-control" name="totime">
+                            <i class="fas fa-fw fa-clock position-absolute"></i>
                         </div>
+                    </div>
 
-                        <div class="col-lg-4 mb-3 setDate position-relative">
-                            <label class="mb-0" for="datepicker2">To Date</label>
+                    <div id="taskArea">
 
-                            <div class="dateHolder position-relative">
-                                <input type="text" id="datepicker2" class="form-control" name="todate">
-                                <i class="fas fa-fw fa-calendar position-absolute"></i>
-                            </div>
-                        </div>
+                        <div class="w-row mb-4">
 
-                        <div class="col-lg-4 mb-3 setTime position-relative">
-                            <label class="mb-0" for="timepicker">To Time</label>
+                            <div class="col-12 taskLabel"><label>Task 1</label></div>
 
-                            <div class="dateHolder position-relative">
-                                <input type="text" id="input" class="timepicker form-control" name="totime">
-                                <i class="fas fa-fw fa-clock position-absolute"></i>
-                            </div>
-                        </div>
+                            <div class="fieldsDiv w-100">
 
-                        <div id="taskArea">
+                                <div class="col-4">
+                                    <label for="selectFile" class="mb-0">Select File<span
+                                            class="text-color-red">*</span></label>
+                                    <input type="file" id="selectFile" name="selectFile" data-name="selectFile"
+                                           class="form-control select-pres select-field w-select">
+                                </div>
 
-                            <div class="w-row mb-4">
+                                <div class="col-4">
 
-                                <div class="col-12 taskLabel"><label>Task 1</label></div>
+                                    <label for="selectRPA" class="mb-0">Select RPA<span class="text-color-red">*</span></label>
 
-                                <div class="fieldsDiv w-100">
+                                    <select id="selectRPA" name="selectRPA" data-name="selectRPA"
+                                            class="custom-select form-control select-RPA select-field w-select">
+                                        <option value="">Select</option>
+                                        {% for pro in projects %}
+                                        <option value="{{ pro.project_name }}">{{ pro.process_name }}</option>
+                                        {% endfor %}
+                                    </select>
 
-                                    <div class="col-4">
-                                        <label for="selectFile" class="mb-0">Select File<span class="text-color-red">*</span></label>
-                                        <input type="file" id="selectFile" name="selectFile" data-name="selectFile" class="form-control select-pres select-field w-select">
-                                    </div>
+                                </div>
 
-                                    <div class="col-4">
+                                <div class="col-4">
 
-                                        <label for="selectRPA" class="mb-0">Select RPA<span class="text-color-red">*</span></label>
+                                    <label for="selectPRY" class="mb-0">Select PRY<span class="text-color-red">*</span></label>
 
-                                        <select id="selectRPA" name="selectRPA" data-name="selectRPA" class="custom-select form-control select-RPA select-field w-select">
-                                            <option value="">Select</option>
-                                            {% for pro in projects %}
-                                            <option value="{{ pro.project_name }}">{{ pro.process_name }}</option>
-                                            {% endfor %}
-                                        </select>
-
-                                    </div>
-
-                                    <div class="col-4">
-
-                                        <label for="selectPRY" class="mb-0">Select PRY<span class="text-color-red">*</span></label>
-
-                                        <select id="selectPRY" name="selectPRY" data-name="selectPRY" class="custom-select form-control select-PRY select-field w-select">
-                                            <option value="">Select</option>
-                                            {% for pro in projects %}
-                                            <option value="{{ pro.project_name }}">{{ pro.process_name }}</option>
-                                            {% endfor %}
-                                        </select>
-
-                                    </div>
+                                    <select id="selectPRY" name="selectPRY" data-name="selectPRY"
+                                            class="custom-select form-control select-PRY select-field w-select">
+                                        <option value="">Select</option>
+                                        {% for pro in projects %}
+                                        <option value="{{ pro.project_name }}">{{ pro.process_name }}</option>
+                                        {% endfor %}
+                                    </select>
 
                                 </div>
 
@@ -101,41 +149,47 @@
 
                         </div>
 
-                        <div class="btnsDiv mb-4 d-flex justify-content-end col-lg-12">
-                            <a href="javascript:void(0);" id="addTask" class="btn btn-primary cta-headine hover-red" onclick="incrementBtn();"><span class="text-color-red">+ </span>Add</a>
-                            <a href="javascript:void(0);" id="removeTask" class="ml-2 btn btn-primary cta-headine hover-red" onclick="decrementBtn();"><span class="text-color-red">- </span>Remove</a>
-                        </div>
+                    </div>
 
-                        <div class="col-lg-7 row" style="display:none">
-                            <label class="col-lg-2 col-form-label">No. of tasks</label>
-                            <div class="col-lg-3">
-                                <input type="number" id="uploadNum" name="uploadNum" value="1" class="form-control">
-                            </div>
-                        </div>
+                    <div class="btnsDiv mb-4 d-flex justify-content-end col-lg-12">
+                        <a href="javascript:void(0);" id="addTask" class="btn btn-primary cta-headine hover-red"
+                           onclick="incrementBtn();"><span class="text-color-red">+ </span>Add</a>
+                        <a href="javascript:void(0);" id="removeTask" class="ml-2 btn btn-primary cta-headine hover-red"
+                           onclick="decrementBtn();"><span class="text-color-red">- </span>Remove</a>
+                    </div>
 
-                        <div class="col-lg-12 mb-3 mt-4">
-                            <button class="btn btn-primary border-0 mr-1" type="button">Cancel</button>
-                            <button class="btn btn-primary border-0 saveBtn" type="submit">Save</button>
-                        </div>
+                    <div class="col-lg-7 row" style="display:none">
 
+                        <label class="col-lg-2 col-form-label">No. of tasks</label>
+                        <div class="col-lg-3">
+                            <input type="number" id="uploadNum" name="uploadNum" value="1" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 mb-3 mt-4">
+                        <button class="btn btn-primary border-0 mr-1" type="button">Cancel</button>
+                        <button class="btn btn-primary border-0 saveBtn" type="submit">Save</button>
                     </div>
 
                 </div>
-            </form>
 
-        </div>
+            </div>
+        </form>
 
-        <script>
+    </div>
+
+    <script>
         {% if 'alreadyexists' == process_check  %}
             alert("process already exists");
         {% elif 'error' == process_check %}
-            alert("Error occured");
+            alert("Process already exists , change name");
         {% else %}
             console.log("all good");
         {% endif %}
+
     </script>
 
-    </div>
+</div>
 
 <!--</div>-->
 

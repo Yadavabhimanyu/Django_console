@@ -3,9 +3,11 @@ from django.http import HttpResponse
 from subprocess import run
 import sys
 import os
+import json
 from .models import process_file_repo
 from .functions.functions import handle_uploaded_file, convert_to_24_h, clear_old_files
 from jobs import updater
+from jobs import jobs
 
 
 #####################
@@ -16,13 +18,16 @@ def index(request):
 
 def schedules_task(request):
     jobs = updater.all_jobs
+    scheduler_local = updater.scheduler
+    print("inside scheduler task")
+    print(scheduler_local.get_jobs(), "ffffffffffffffff")
     context = {'jobs': jobs}
     return render(request, 'scheduled-job.html', context)
 
 
 def new_process(request):
     if request.method == 'POST':
-        # try:
+        try:
             project_name = request.POST.get('projectName')
             process_name = request.POST.get('processName')
             from_date = request.POST.get('fromdate')
@@ -43,7 +48,7 @@ def new_process(request):
                     selectrpa = request.POST.get('selectRPA')
                     selectpry = request.POST.get('selectPRY')
                     selectfile = request.POST.get('selectFile')
-                    print(selectrpa,selectpry,selectfile,ii,"first loop")
+                    print(selectrpa, selectpry, selectfile, ii, "first loop")
                     if selectrpa != '':
                         print('rpa')
                         project_file = str(selectrpa)
@@ -72,25 +77,35 @@ def new_process(request):
                     project_file = project_file + project_f
                 else:
                     project_file = project_file + ',' + project_f
-            #     handle_uploaded_file(request.FILES[i], project_name + '/' + process_name)
-            # data_li = process_file_repo(project_name=project_name, process_name=process_name, from_date=from_date,
-            #                             to_date=to_date, to_time=to_time, project_file=project_file)
-            # data_li.save()
-            # updater.start()
+                handle_uploaded_file(request.FILES[i], project_name + '/' + process_name)
+            data_li = process_file_repo(project_name=project_name, process_name=process_name, from_date=from_date,
+                                        to_date=to_date, to_time=to_time, project_file=project_file)
+            data_li.save()
+            # add new logicc for new task
+            hour_ = to_time.split(':')[0]
+            minutes_ = to_time.split(':')[1]
+            scheduler_local = updater.scheduler
+            scheduler_local.add_job(jobs.external, 'cron', args=[project_file.split(','), process_name, project_name],
+                                    day_of_week='*', hour=hour_,
+                                    minute=minutes_, id=project_name + '_' + process_name, replace_existing=True,
+                                    name=process_name)
+            print(scheduler_local.get_jobs())
             return redirect("project-management")
-        # except Exception as e:
-        #     print(e)
-        #     if "already exists" in str(e):
-        #         projects = process_file_repo.objects.all()
-        #         context = {'process_check': 'alreadyexists', "projects": projects}
-        #         return render(request, 'project-management.html', context)
-        #     else:
-        #         projects = process_file_repo.objects.all()
-        #         context = {'process_check': 'error', "projects": projects}
-        #         return render(request, 'project-management.html', context)
+        except Exception as e:
+            print(e)
+            if "already exists" in str(e):
+                projects = process_file_repo.objects.all()
+                context = {'process_check': 'alreadyexists', "projects": projects}
+                return render(request, 'project-management.html', context)
+            else:
+                projects = process_file_repo.objects.all()
+                context = {'process_check': 'error', "projects": projects}
+                return render(request, 'project-management.html', context)
 
     projects = process_file_repo.objects.all()
-    context = {"projects": projects}
+    projects_list=list(projects.values('project_name','process_name'))
+    projects_list=json.dumps(projects_list)
+    context = {"projects": projects,"project_list":projects_list}
     return render(request, 'project-management.html', context)
 
 
@@ -174,6 +189,12 @@ def delete_process(request, pk):
     process = process_file_repo.objects.get(id=pk)
     if request.method == 'POST':
         process.delete()
+        project_name=process.project_name
+        process_name=process.process_name
+        scheduler_local = updater.scheduler
+        scheduler_local.remove_job(project_name + '_' + process_name)
+        # add logic for task removal
+        print(scheduler_local.get_jobs())
         return redirect('project-management')
     return render(request, 'delete_page.html', {'obj': process})
 
@@ -219,10 +240,18 @@ def update_task(request, pk):
         process.from_date = from_date
         process.to_date = to_date
         process.to_time = to_time
+        hour_ = to_time.split(':')[0]
+        minutes_ = to_time.split(':')[1]
         if len(project_file) != 0:
             process.project_file = project_file
         process.save()
-        updater.start()
+        # change logic to new add job\
+        scheduler_local = updater.scheduler
+        scheduler_local.add_job(jobs.external, 'cron', args=[project_file.split(','), process_name, project_name],
+                                day_of_week='*', hour=hour_,
+                                minute=minutes_, id=project_name + '_' + process_name, replace_existing=True,
+                                name=process_name)
+        print(scheduler_local.get_jobs())
         return redirect('project-management')
     print(process.to_time)
     t = process.to_time.strftime("%I:%M %p")
