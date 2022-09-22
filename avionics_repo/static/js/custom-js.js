@@ -385,10 +385,16 @@ $(document).ready(function() {
 $(document).ready(function() {
 
     $('#addTask').click(function(){
-
+        var json_data=document.getElementById('uploadData').value;
+        var obj = $.parseJSON(json_data);
+        var length_ = obj.length
+        var text1=''
         var intId = $("#taskArea .w-row").length + 1 || 1;
-
-        var presFields = $('<div class="w-row mb-4"><div class="col-12 taskLabel"><label>Task '+ "" + intId + '</label></div><div class="fieldsDiv"><div class="col-4"><label class="mb-0" for="selectFile' + intId + '">Select File <span class="text-color-red"></span></label><input type="file" id="selectFile' + intId + '" name="selectFile' + intId + '" data-name="selectFile' + intId + '" class="form-control select-field w-select"></div><div class="col-4"><label class="mb-0" for="selectRPA' + intId + '">Select RPA <span class="text-color-red"></span></label><select id="selectRPA' + intId + '" name="selectRPA' + intId + '" data-name="selectRPA' + intId + '" class="custom-select form-control select-RPA select-field w-select"><option value="">Select</option>{% for pro in projects %}<option value="{{ pro.project_name }}">{{ pro.process_name }}</option>{% endfor %}</select></div><div class="col-4"><label class="mb-0" for="selectPRY' + intId + '">Select PRY <span class="text-color-red">*</span></label><select id="selectPRY' + intId + '" name="selectPRY' + intId + '" data-name="selectPRY' + intId + '" class="custom-select form-control select-PRY select-field w-select"><option value="">Select</option>{% for pro in projects %}<option value="{{ pro.project_name }}">{{ pro.process_name }}</option>{% endfor %}</select></div></div></div>');
+        for (var i = 0; i < length_; i++) {
+          text1+='<option value="'+obj[i].process_name+'">'+obj[i].project_name+'</option>'
+         }
+        var text2 =text1
+        var presFields = $('<div class="w-row mb-4"><div class="col-12 taskLabel"><label>Task '+ "" + intId + '</label></div><div class="fieldsDiv"><div class="col-4"><label class="mb-0" for="selectFile' + intId + '">Select File <span class="text-color-red"></span></label><input type="file" id="selectFile' + intId + '" name="selectFile' + intId + '" data-name="selectFile' + intId + '" class="form-control select-field w-select"></div><div class="col-4"><label class="mb-0" for="selectRPA' + intId + '">Select RPA <span class="text-color-red"></span></label><select id="selectRPA' + intId + '" name="selectRPA' + intId + '" data-name="selectRPA' + intId + '" class="custom-select form-control select-RPA select-field w-select"><option value="">Select</option>'+text1+'</select></div><div class="col-4"><label class="mb-0" for="selectPRY' + intId + '">Select PRY <span class="text-color-red">*</span></label><select id="selectPRY' + intId + '" name="selectPRY' + intId + '" data-name="selectPRY' + intId + '" class="custom-select form-control select-PRY select-field w-select"><option value="">Select</option>'+text2+'</select></div></div></div>');
         $('#taskArea').append(presFields);
 
     });
@@ -426,6 +432,7 @@ var y = 1;
 function incrementBtn() {
     y++;
     document.getElementById('uploadNum').value = y;
+
 }
 
 var z = y;

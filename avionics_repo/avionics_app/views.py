@@ -8,7 +8,7 @@ from .models import process_file_repo
 from .functions.functions import handle_uploaded_file, convert_to_24_h, clear_old_files
 from jobs import updater
 from jobs import jobs
-
+from django.core.files.storage import FileSystemStorage
 
 #####################
 # Create your views here.
@@ -27,6 +27,9 @@ def schedules_task(request):
 
 def new_process(request):
     if request.method == 'POST':
+        # fs=FileSystemStorage()
+        # upload_file=request.FILES['selectFile']
+        # fs.save(upload_file.name,upload_file)
         try:
             project_name = request.POST.get('projectName')
             process_name = request.POST.get('processName')
@@ -48,7 +51,7 @@ def new_process(request):
                     selectrpa = request.POST.get('selectRPA')
                     selectpry = request.POST.get('selectPRY')
                     selectfile = request.POST.get('selectFile')
-                    print(selectrpa, selectpry, selectfile, ii, "first loop")
+                    print(selectrpa, selectpry, selectfile, ii-1, "first loop")
                     if selectrpa != '':
                         print('rpa')
                         project_file = str(selectrpa)
@@ -58,6 +61,7 @@ def new_process(request):
                     if selectfile != '':
                         print('file')
                         project_file = str(request.FILES["selectFile"].name)
+                        handle_uploaded_file(request.FILES['selectFile'], project_name + '/' + process_name)
                 else:
                     selectrpa = request.POST.get('selectRPA' + str(ii))
                     selectpry = request.POST.get('selectPRY' + str(ii))
@@ -70,14 +74,15 @@ def new_process(request):
                         project_file = project_file + ',' + str(selectpry)
                     if selectfile != '':
                         project_file = project_file + ',' + str(request.FILES["selectFile" + str(ii)].name)
+                        handle_uploaded_file(request.FILES["selectFile" + str(ii)],project_name+'/'+process_name)
             print(project_file, "new_way")
-            for i in request.FILES.keys():
-                project_f = request.FILES[i].name
-                if project_file == '':
-                    project_file = project_file + project_f
-                else:
-                    project_file = project_file + ',' + project_f
-                handle_uploaded_file(request.FILES[i], project_name + '/' + process_name)
+            # for i in request.FILES.keys():
+            #     project_f = request.FILES[i].name
+            #     if project_file == '':
+            #         project_file = project_file + project_f
+            #     else:
+            #         project_file = project_file + ',' + project_f
+
             data_li = process_file_repo(project_name=project_name, process_name=process_name, from_date=from_date,
                                         to_date=to_date, to_time=to_time, project_file=project_file)
             data_li.save()
@@ -92,7 +97,7 @@ def new_process(request):
             print(scheduler_local.get_jobs())
             return redirect("project-management")
         except Exception as e:
-            print(e)
+            print(e,"eeeeeeeeeeee")
             if "already exists" in str(e):
                 projects = process_file_repo.objects.all()
                 context = {'process_check': 'alreadyexists', "projects": projects}
@@ -256,6 +261,8 @@ def update_task(request, pk):
     print(process.to_time)
     t = process.to_time.strftime("%I:%M %p")
     print(t)
-
-    context = {'obj': process}
+    projects = process_file_repo.objects.all()
+    projects_list = list(projects.values('project_name', 'process_name'))
+    projects_list = json.dumps(projects_list)
+    context = {'obj': process,"projects": projects, "project_list": projects_list}
     return render(request, 'update_task.html', context)

@@ -1,66 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'base.html' %}
+{% load static %}
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% block content %}
 
-    <title>Avionics</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="../static/fonts/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <!-- Multiselect CSS -->
-    <link rel="stylesheet" href="../static/css/bootstrap-multiselect.css">
+<div class="card shadow mb-4">
 
-    <link href="../static/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-    <link href="../static/css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
-
-    <link href="../static/css/animate.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="../static/css/jquery-ui.css">
-    <link rel="stylesheet" href="../static/css/datepicker.min.css">
-
-    <!-- Custom styles for this template-->
-    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../static/css/custom-style.css" rel="stylesheet">
-    <link href="../static/css/custom-responsive.css" rel="stylesheet">
-
-</head>
-<body id="page-top" >
-
-<!-- Topbar -->
-<nav class="navbar navbar-light bg-white topbar mb-4 shadow">
-
-    <div class="viewHead d-flex mt-1">
-
-        <div class="headLeft mr-3">
-
-            <a class="backToIndexPage" href="index.html"><img src="../static/img/ss-logo.png" width="170" height="48"></a>
-
-        </div>
-
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-uppercase">Project Management</h6>
     </div>
 
-</nav>
-<!-- End of Topbar -->
+    <div class="card-body">
 
-<div class="container-fluid">
-
-    <div class="card shadow mb-4">
-
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-uppercase">Project Management</h6>
-        </div>
-
-        <div class="card-body">
-
-            <form method="post" action="{% url 'update_task' obj.id %}"  enctype="multipart/form-data">
+        <form method="post" action="{% url 'update_task' obj.id %}" name="myForm" onsubmit="return validateForm()"
+              enctype="multipart/form-data" id="reminderForm">
             {% csrf_token %}
             <div class="form-group mb-0">
 
@@ -77,10 +31,10 @@
                     </div>
 
                     <div class="col-lg-4 mb-3 setDate">
-                        <label class="mb-0" for="datepicker" >From Date</label>
+                        <label class="mb-0" for="datepicker">From Date</label>
 
                         <div class="dateHolder position-relative">
-                            <input type="text" id="datepicker" class="form-control" name="fromdate" value="{{obj.from_date|date:"Y-m-d" }}">
+                            <input type="text" id="datepicker" class="form-control" name="fromdate"  value="{{obj.from_date|date:"Y-m-d" }}">
                             <i class="fas fa-fw fa-calendar position-absolute"></i>
                         </div>
                     </div>
@@ -89,7 +43,7 @@
                         <label class="mb-0" for="datepicker2">To Date</label>
 
                         <div class="dateHolder position-relative">
-                            <input type="text" id="datepicker2" class="form-control" name="todate" value="{{obj.to_date|date:"Y-m-d" }}">
+                            <input type="text" id="datepicker2" class="form-control" name="todate"  value="{{obj.to_date|date:"Y-m-d" }}">
                             <i class="fas fa-fw fa-calendar position-absolute"></i>
                         </div>
                     </div>
@@ -104,17 +58,74 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-12 mb-3">
+                    <div id="taskArea">
 
-                        <label class=" mb-0" for="projectFile" >Project File</label>
-                        <input type='file' class="form-control col-lg-4 mb-3" id='t1' name="projectFile"  />
+                        <div class="w-row mb-4">
 
-                        <div class="mb-3 d-flex" id='clonedDiv'></div>
+                            <div class="col-12 taskLabel"><label>Task 1</label></div>
+
+                            <div class="fieldsDiv w-100">
+
+                                <div class="col-4">
+                                    <label for="selectFile" class="mb-0">Select File<span
+                                            class="text-color-red">*</span></label>
+                                    <input type="file" id="selectFile" name="selectFile" data-name="selectFile"
+                                           class="form-control select-pres select-field w-select">
+                                </div>
+
+                                <div class="col-4">
+
+                                    <label for="selectRPA" class="mb-0">Select RPA<span class="text-color-red">*</span></label>
+
+                                    <select id="selectRPA" name="selectRPA" data-name="selectRPA"
+                                            class="custom-select form-control select-RPA select-field w-select">
+                                        <option value="">Select</option>
+                                        {% for pro in projects %}
+                                        <option value="{{ pro.project_name }}">{{ pro.process_name }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                </div>
+
+                                <div class="col-4">
+
+                                    <label for="selectPRY" class="mb-0">Select PRY<span class="text-color-red">*</span></label>
+
+                                    <select id="selectPRY" name="selectPRY" data-name="selectPRY"
+                                            class="custom-select form-control select-PRY select-field w-select">
+                                        <option value="">Select</option>
+                                        {% for pro in projects %}
+                                        <option value="{{ pro.project_name }}">{{ pro.process_name }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="col-lg-4 mb-3 mt-2">
-                        <button class="btn btn-primary border-0"  type="button"><a class="text-white" href="{{request.META.HTTP_REFERER}}">Cancel </a></button>
-                        <button class="btn btn-primary border-0" type="submit">Save</button>
+                    <div class="btnsDiv mb-4 d-flex justify-content-end col-lg-12">
+                        <a href="javascript:void(0);" id="addTask" class="btn btn-primary cta-headine hover-red"
+                           onclick="incrementBtn();"><span class="text-color-red">+ </span>Add</a>
+                        <a href="javascript:void(0);" id="removeTask" class="ml-2 btn btn-primary cta-headine hover-red"
+                           onclick="decrementBtn();"><span class="text-color-red">- </span>Remove</a>
+                    </div>
+
+                    <div class="col-lg-7 row" style="display:none">
+
+                        <label class="col-lg-2 col-form-label">No. of tasks</label>
+                        <div class="col-lg-3">
+                            <input type="number" id="uploadNum" name="uploadNum" value="1" class="form-control">
+                            <input type="text" id="uploadData" name="uploadData" value="{{ project_list }}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 mb-3 mt-4">
+                        <button class="btn btn-primary border-0 mr-1" type="button">Cancel</button>
+                        <button class="btn btn-primary border-0 saveBtn" type="submit">Save</button>
                     </div>
 
                 </div>
@@ -122,39 +133,10 @@
             </div>
         </form>
 
-        </div>
-
     </div>
-
 </div>
 
-<!-- Bootstrap core JavaScript-->
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.bundle.min.js"></script>
+<!--</div>-->
 
-    <!-- Core plugin JavaScript-->
-    <script src="../static/js/jquery.easing.min.js"></script>
+{% endblock %}
 
-    <!-- Custom scripts for all pages-->
-    <script src="../static/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../static/js/jquery.dataTables.min.js"></script>
-    <script src="../static/js/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../static/js/datatables-demo.js"></script>
-
-    <!-- Multi select script -->
-    <script src="../static/js/bootstrap-multiselect.js"></script>
-
-    <!-- Time picker script -->
-    <script src="../static/js/jquery-ui.min.js"></script>
-    <script src="../static/js/jquery.timepicker.min.js"></script>
-
-    <script src="../static/js/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <!-- Custom js -->
-    <script src="../static/js/custom-js.js"></script>
-</body>
-</html>
