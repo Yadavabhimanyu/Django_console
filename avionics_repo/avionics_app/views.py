@@ -13,6 +13,7 @@ from django.core.files.storage import FileSystemStorage
 #####################
 # Create your views here.
 def index(request):
+    print(os.environ['USERPROFILE'])
     return render(request, 'job-dashboard.html')
 
 

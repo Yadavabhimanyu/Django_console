@@ -18,5 +18,5 @@ urlpatterns = [
     path('schedule-project/<str:pk>', views.schedule_project, name='schedule-project'),
     path('delete_process/<str:pk>', views.delete_process, name='delete_process'),
     path('update_task/<str:pk>', views.update_task, name='update_task'),
-    path('schedules-task/', views.schedules_task, name='schedules_task'),
+    path('scheduled-task/', views.schedules_task, name='scheduled_task'),
 ]
